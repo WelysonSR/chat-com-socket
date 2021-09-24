@@ -1,0 +1,25 @@
+{
+  "name": "chat-com-socket",
+  "version": "1.0.0",
+  "description": "chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WelysonSR/chat-com-socket.git"
+  },
+  "author": "Welyson Rosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WelysonSR/chat-com-socket/issues"
+  },
+  "homepage": "https://github.com/WelysonSR/chat-com-socket#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "socket.io": "^4.2.0"
+  }
+}
