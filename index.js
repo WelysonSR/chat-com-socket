@@ -1,3 +1,4 @@
+const { SlowBuffer } = require("buffer");
 const express = require("express");
 const { isObject } = require("util");
 const app = express();
@@ -9,9 +10,10 @@ io.on("connection",(socket)=>{
     socket.on("disconnect", ()=>{
         console.log("X desconectou" + socket.id);
     });
-
-    console.log(socket);
-    console.log(socket.id);
+    socket.on("msg", (data)=>{
+        io.emit("showmsg", data);
+        console.log(data);
+    });
 });
 
 app.set("view engine","ejs");

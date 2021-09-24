@@ -7,7 +7,13 @@
     <title>Chat</title>
 </head>
 <body>
-    <h1>Teste!</h1>
+    <h1>Chat ON!</h1>
+    <div id="chat">
+
+    </div>
+    <input type="text" name="" id="msg"><br>
+    <input type="text" name="" id="username" placeholder="Nome de usuário">
+    <button onclick="enviar()">Enviar</button>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
 <script>
@@ -15,6 +21,25 @@
     socket.on("disconnect", ()=>{
         console.log("Desconectado");
     });
-    
+
+    socket.on("showmsg", (data)=>{
+        console.log(data);
+
+        let chat = document.getElementById("chat");
+        let p = document.createElement("p");
+        p.innerHTML = data.username + ": " + data.msg;
+        chat.append(p);
+
+
+    });
+
+    function enviar(){
+        let msg = document.getElementById("msg").value;
+        let username = document.getElementById("username").value;
+
+        socket.emit("msg",{msg: msg, username: username});
+
+    }
+
 </script>
-<
+</html>
